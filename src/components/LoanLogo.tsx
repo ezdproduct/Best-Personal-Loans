@@ -21,13 +21,6 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
   const imageClass = size === 'large' ? 'h-10' : 'h-8';
 
   switch (logoType) {
-    case 'AmeriSave':
-      return (
-        <div className="text-teal-700">
-          <span className="text-3xl font-bold">AMERISAVE</span>
-          <span className="block text-xs font-medium tracking-wider">MORTGAGE</span>
-        </div>
-      );
     case 'Trusted Online Loans':
       return (
         <img 
@@ -55,26 +48,26 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Checkdraw':
       return (
         <img 
-          src="https://www-infeng.s3.amazonaws.com/static/images/Checker_Logo_red_white_BRGfynS.original.png" 
+          src="/checkdraw-logo.svg" 
           alt="Checkdraw Logo" 
           className={`${imageClass} w-auto`} 
         />
       );
     case 'Hanfincal Lending':
-      return (
-        <img 
-          src="https://loan.hanfincal.com/apply/assets/logo-D5U692mO.png" 
-          alt="Hanfincal Lending Logo" 
-          className={`${imageClass} w-auto`} 
-        />
-      );
     case 'Halloween Hanfincal':
       return (
         <img 
-          src="https://halloween.hanfincal.com/assets/logo-white-D8_-d5tX.png" 
-          alt="Halloween Hanfincal Logo" 
+          src="/hanfincal-logo.svg" 
+          alt="Hanfincal Logo" 
           className={`${imageClass} w-auto`} 
         />
+      );
+    case 'AmeriSave':
+      return (
+        <div className="text-teal-700">
+          <span className="text-3xl font-bold">AMERISAVE</span>
+          <span className="block text-xs font-medium tracking-wider">MORTGAGE</span>
+        </div>
       );
     default:
       const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
