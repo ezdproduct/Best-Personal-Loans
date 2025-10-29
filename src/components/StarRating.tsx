@@ -20,9 +20,9 @@ const getStarVisuals = (score: number) => {
 
   for (let i = 1; i <= maxStars; i++) {
     if (i <= fullStars) {
-      stars.push(<Star key={i} className="fill-green-500 text-green-500" />);
+      stars.push(<Star key={i} className="fill-green-500 text-green-500 w-5 h-5" />);
     } else {
-      stars.push(<Star key={i} className="text-green-500 fill-transparent" />);
+      stars.push(<Star key={i} className="text-green-500 fill-transparent w-5 h-5" />);
     }
   }
   return stars;
