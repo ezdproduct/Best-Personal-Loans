@@ -62,7 +62,7 @@ const ScoreTooltip: React.FC<ScoreTooltipProps> = ({ scores, reviews, platformNa
       {isInfoOpen && (
         <div className="absolute right-0 mt-2 w-80 bg-white border border-gray-300 rounded-lg shadow-xl z-50 p-4">
           <div className="flex justify-end">
-            <button onClick={toggleInfo} className="text-gray-500 hover:text-gray-800">
+            <button onClick={toggleInfo} className="text-gray-500 hover:text-gray-800 p-1 rounded-full transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>

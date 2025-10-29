@@ -30,7 +30,10 @@ const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
           {/* Right side - Content */}
           <div className="relative flex flex-col items-center justify-center p-8 text-center">
             <DialogClose asChild>
-              <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+              <button 
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 p-1 rounded-full transition-colors"
+                aria-label="Close"
+              >
                 <X className="w-6 h-6" />
               </button>
             </DialogClose>
