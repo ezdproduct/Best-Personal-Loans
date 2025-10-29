@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 w-full h-full bg-black/60"></div>
       
       {/* Nội dung Hero */}
-      <div className="relative max-w-7xl mx-auto px-6 py-24 text-center text-white z-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center text-white z-10">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
           Best <span className="text-blue-400">Personal Loans</span> in 2025
         </h1>

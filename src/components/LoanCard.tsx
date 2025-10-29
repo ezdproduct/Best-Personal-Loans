@@ -9,7 +9,7 @@ interface LoanCardProps {
 
 const LoanCard: React.FC<LoanCardProps> = ({ provider }) => {
   return (
-    <div className="bg-white rounded-lg shadow-xl p-6 flex flex-col justify-between">
+    <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 flex flex-col justify-between">
       <div>
         <div className="flex justify-between items-start mb-4">
           <LoanLogo logoType={provider.logo} size="small" />

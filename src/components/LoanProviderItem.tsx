@@ -18,7 +18,7 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
       </div>
       
       {/* Nội dung mục */}
-      <div className="p-6 grid grid-cols-12 gap-6 items-center">
+      <div className="p-4 sm:p-6 grid grid-cols-12 gap-6 items-center">
         {/* Cột 1: Logo và Đánh giá Trustpilot */}
         <div className="col-span-12 md:col-span-3">
           <LoanLogo logoType={provider.logo} size="large" />
@@ -40,7 +40,7 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
         {/* Cột 2: Đánh giá */}
         <div className="col-span-12 md:col-span-2">
           <div className="flex flex-col items-start md:items-center">
-            <span className="text-5xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
+            <span className="text-4xl sm:text-5xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} className="w-5 h-5" />
             <div className="text-sm text-gray-500 mt-1 font-bold hover:underline cursor-pointer flex items-center">
               Our score <Info className="w-3 h-3 ml-1" />

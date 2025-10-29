@@ -19,7 +19,7 @@ const LoanTypeButton: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 const LoanTypeSelector: React.FC = () => {
   return (
-    <div className="mt-8 mb-8 bg-white rounded-lg shadow-lg border border-gray-200 p-6 md:p-8">
+    <div className="mt-8 mb-8 bg-white rounded-lg shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
         {/* Cột bên trái: Tiêu đề và biểu tượng */}
         <div className="col-span-12 md:col-span-5 text-center md:text-left">

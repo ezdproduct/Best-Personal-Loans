@@ -32,7 +32,7 @@ const Index = () => {
       <HeroSection />
 
       {/* Phần nội dung chính (với các thẻ) */}
-      <div className="max-w-7xl mx-auto px-6 relative z-20 -mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-16">
         
         {/* 3 Thẻ hàng đầu */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -80,7 +80,7 @@ const Index = () => {
         </div>
 
         {/* Phần Nội dung FAQ/Văn bản */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-10 mt-8 space-y-8 text-gray-700 leading-relaxed">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-8 space-y-8 text-gray-700 leading-relaxed">
             {collapsibleFAQs.map((item, index) => (
                 <FAQSection key={index} item={item} isCollapsible={true} />
             ))}
