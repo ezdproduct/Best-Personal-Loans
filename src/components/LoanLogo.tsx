@@ -18,12 +18,45 @@ const FundComLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
-  const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
-  return (
-    <div className="h-10 flex items-center">
-      <span className={`${textSize} font-bold text-gray-900`}>{logoType}</span>
-    </div>
-  );
+  const imageClass = size === 'large' ? 'h-10' : 'h-8';
+
+  switch (logoType) {
+    case 'Seekerloans':
+      return (
+        <img 
+          src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" 
+          alt="Seekerloans Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
+    case 'Checkdraw':
+      return (
+        <img 
+          src="https://checkdraw.com/static/media/checkdraw-logo.6dfd7c80756a8c916c77.png" 
+          alt="Checkdraw Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
+    case 'Hanfincal Lending':
+    case 'Halloween Hanfincal':
+      return (
+        <img 
+          src="https://loan.hanfincal.com/static/media/hanfincal-logo.6dfd7c80756a8c916c77.png" 
+          alt="Hanfincal Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
+    // Fallback for providers without a specific logo image
+    case 'Trusted Online Loans':
+    case 'Best Creditloanexpert':
+    default:
+      const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
+      return (
+        <div className="h-10 flex items-center">
+          <span className={`${textSize} font-bold text-gray-900`}>{logoType}</span>
+        </div>
+      );
+  }
 };
 
 export { LoanLogo, FundComLogo };
