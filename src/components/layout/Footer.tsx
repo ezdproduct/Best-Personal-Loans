@@ -1,5 +1,5 @@
 import React from 'react';
-import { FundComLogo } from '@/components/LoanLogo';
+import SiteIcon from '@/components/SiteIcon';
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <FundComLogo className="h-12" />
+            <SiteIcon className="h-12 w-12 text-teal-600" />
           </div>
           <div className="md:col-span-2 grid grid-cols-2 gap-8">
             <div>
