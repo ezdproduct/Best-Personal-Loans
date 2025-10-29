@@ -18,7 +18,7 @@ const FundComLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
-  const imageClass = size === 'large' ? 'h-10' : 'h-8';
+  const imageClass = size === 'large' ? 'h-12' : 'h-10'; // Increased size
 
   switch (logoType) {
     case 'Trusted Online Loans':
@@ -42,7 +42,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
         <img 
           src="/seekerloans-logo.svg" 
           alt="Seekerloans Logo" 
-          className="h-8 md:h-10 w-auto"
+          className="h-10 md:h-12 w-auto" // Increased size
         />
       );
     case 'Checkdraw':
@@ -50,7 +50,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
         <img 
           src="/checkdraw-logo.svg" 
           alt="Checkdraw Logo" 
-          className="h-6 md:h-8 w-auto"
+          className="h-8 md:h-10 w-auto" // Increased size
         />
       );
     case 'Hanfincal Lending':
