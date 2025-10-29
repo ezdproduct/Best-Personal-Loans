@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import HeroSection from '@/components/HeroSection';
 import InfoBar from '@/components/InfoBar';
 import LoanProviderItem from '@/components/LoanProviderItem';
@@ -62,7 +61,6 @@ const Index = () => {
       </div>
       
       <Footer />
-      <MadeWithDyad />
     </div>
   );
 };
