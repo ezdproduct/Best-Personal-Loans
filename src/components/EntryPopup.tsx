@@ -3,6 +3,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { LoanLogo } from './LoanLogo';
 import { X, Clock, ChevronRight } from 'lucide-react';
+import { loanProviders } from '@/data/loanProviders';
 
 interface EntryPopupProps {
   isOpen: boolean;
@@ -10,6 +11,11 @@ interface EntryPopupProps {
 }
 
 const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
+  // Lấy dữ liệu cho Best Creditloanexpert (ID 2)
+  const provider = loanProviders.find(p => p.platformName === 'Best Creditloanexpert');
+
+  if (!provider) return null;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-11/12 p-0 overflow-hidden rounded-lg shadow-2xl gap-0 hide-default-close">
@@ -40,24 +46,24 @@ const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
 
             <div className="inline-flex items-center px-4 py-1 mb-6 text-sm font-semibold text-teal-800 bg-teal-100 rounded-full">
               <Clock className="w-4 h-4 mr-2" />
-              Exceptional Loan Offers
+              {provider.featureTag}
             </div>
 
             <div className="mb-4">
-              <LoanLogo logoType="AmeriSave" />
-              <p className="text-sm text-gray-500 mt-1">NMLS# 1168</p>
+              <LoanLogo logoType={provider.platformName} />
+              {provider.nmls && <p className="text-sm text-gray-500 mt-1">NMLS# {provider.nmls}</p>}
             </div>
 
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-3">
-              Act Fast: Unlock Low Rates Now!
+              {provider.highlights[0]}
             </h2>
 
-            <a href="#" className="text-teal-600 font-semibold hover:underline mb-6">
-              Get the right personal loan for you
+            <a href={provider.refLink} className="text-teal-600 font-semibold hover:underline mb-6">
+              Check your eligibility now
             </a>
 
             <Button size="lg" className="w-full bg-teal-600 hover:bg-teal-700 text-lg py-6">
-              Get My Rate <ChevronRight className="w-5 h-5 ml-2" />
+              {provider.ctaText} <ChevronRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
         </div>
