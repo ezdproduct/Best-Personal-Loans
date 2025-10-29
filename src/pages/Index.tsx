@@ -18,16 +18,8 @@ const Index = () => {
 
   // Determine which FAQs should be collapsible
   const nonCollapsibleTitle = "When to Get a Personal Loan";
-  const firstFAQTitle = "What is a Personal Loan?";
-  
-  // Separate the first FAQ item
-  const firstFAQ = faqData.find(item => item.title === firstFAQTitle);
-  
-  // Filter out the first FAQ item and the non-collapsible item
-  const remainingFAQs = faqData.filter(item => item.title !== firstFAQTitle);
-  const nonCollapsibleFAQ = remainingFAQs.find(item => item.title === nonCollapsibleTitle);
-  const collapsibleFAQs = remainingFAQs.filter(item => item.title !== nonCollapsibleTitle);
-
+  const nonCollapsibleFAQ = faqData.find(item => item.title === nonCollapsibleTitle);
+  const collapsibleFAQs = faqData.filter(item => item.title !== nonCollapsibleTitle);
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
@@ -54,14 +46,7 @@ const Index = () => {
         {/* INTERACTIVE BLOCK */}
         <LoanTypeInteractiveBlock />
 
-        {/* DETAILED INFO BLOCK (First FAQ item) */}
-        {firstFAQ && (
-            <div className="mt-12">
-                <FAQSection item={firstFAQ} isCollapsible={false} />
-            </div>
-        )}
-
-        {/* REMAINING FAQ Section */}
+        {/* FAQ Section */}
         <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-12 space-y-8 text-gray-700 leading-relaxed">
             {collapsibleFAQs.map((item, index) => (
                 <FAQSection key={index} item={item} isCollapsible={true} />
