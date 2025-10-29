@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { LoanLogo } from './LoanLogo';
 import { X, Clock, ChevronRight } from 'lucide-react';
 import { loanProviders } from '@/data/loanProviders';
+import { trackFbqEvent } from '@/lib/fpixel';
 
 interface EntryPopupProps {
   isOpen: boolean;
@@ -17,6 +18,9 @@ const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
   if (!provider) return null;
 
   const handleCtaClick = () => {
+    // Track the 'Lead' event
+    trackFbqEvent('Lead', { content_name: provider.platformName });
+    
     // Đóng popup ngay lập tức
     onClose();
     // Chuyển hướng người dùng (sử dụng window.open để mở tab mới, giống như các CTA khác)
@@ -70,7 +74,7 @@ const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
               href={provider.refLink} 
               target="_blank" 
               rel="noopener noreferrer" 
-              onClick={onClose} // Close popup when clicking this link
+              onClick={handleCtaClick} // Also track event here
               className="text-teal-600 font-semibold hover:underline mb-6"
             >
               Check your eligibility now
