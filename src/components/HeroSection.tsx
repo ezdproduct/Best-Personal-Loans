@@ -1,10 +1,11 @@
 import React from 'react';
 import { FundComLogo } from './LoanLogo';
 import { LoanProvider } from '@/data/loanProviders';
+import LoanCard from './LoanCard';
 import { Briefcase, Home, Layers, Zap } from 'lucide-react';
 
 interface HeroSectionProps {
-    topProviders: LoanProvider[]; // Kept for compatibility, but now empty
+    topProviders: LoanProvider[];
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
@@ -44,7 +45,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
             </div>
         </div>
 
-        {/* Removed the small cards grid here */}
+        <div className="pb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {topProviders.map(provider => (
+            <LoanCard key={provider.id} provider={provider} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -7,14 +7,10 @@ import FAQSection from '@/components/FAQSection';
 import Disclosure from '@/components/Disclosure';
 import Footer from '@/components/layout/Footer';
 import LoanTypeInteractiveBlock from '@/components/LoanTypeInteractiveBlock';
-import FeaturedLoanCard from '@/components/FeaturedLoanCard';
 import { loanProviders, faqData } from '@/data/loanProviders';
 
 const Index = () => {
-  // The top provider will be used for the featured card
-  const featuredProvider = loanProviders[0];
-  // The rest of the providers start from rank 2
-  const mainProviders = loanProviders.slice(1);
+  const topCards = loanProviders.slice(0, 3);
 
   // Determine which FAQs should be collapsible
   const nonCollapsibleTitle = "When to Get a Personal Loan";
@@ -23,27 +19,21 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
-      {/* HeroSection no longer displays cards */}
-      <HeroSection topProviders={[]} />
+      <HeroSection topProviders={topCards} />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         
-        {/* FEATURED CARD */}
-        <div className="relative z-10 -mt-16 mb-8">
-            <FeaturedLoanCard provider={featuredProvider} />
-        </div>
-
         <InfoBar />
 
-        {/* Main List (starting from rank 2) */}
+        {/* Main List */}
         <div className="mt-8 space-y-6">
-          {mainProviders.map(provider => (
+          {loanProviders.map(provider => (
             <LoanProviderItem key={provider.id} provider={provider} />
           ))}
         </div>
 
-        {/* INTERACTIVE BLOCK */}
+        {/* NEW INTERACTIVE BLOCK */}
         <LoanTypeInteractiveBlock />
 
         {/* FAQ Section */}
