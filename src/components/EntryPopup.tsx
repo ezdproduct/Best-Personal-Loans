@@ -11,10 +11,17 @@ interface EntryPopupProps {
 }
 
 const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
-  // Lấy dữ liệu cho Best Creditloanexpert (ID 2)
+  // Lấy dữ liệu cho Best Creditloanexpert
   const provider = loanProviders.find(p => p.platformName === 'Best Creditloanexpert');
 
   if (!provider) return null;
+
+  const handleCtaClick = () => {
+    // Đóng popup ngay lập tức
+    onClose();
+    // Chuyển hướng người dùng (sử dụng window.open để mở tab mới, giống như các CTA khác)
+    window.open(provider.refLink, '_blank', 'noopener noreferrer');
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -58,11 +65,23 @@ const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
               {provider.highlights[0]}
             </h2>
 
-            <a href={provider.refLink} className="text-teal-600 font-semibold hover:underline mb-6">
+            {/* Link 1: Check eligibility */}
+            <a 
+              href={provider.refLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              onClick={onClose} // Close popup when clicking this link
+              className="text-teal-600 font-semibold hover:underline mb-6"
+            >
               Check your eligibility now
             </a>
 
-            <Button size="lg" className="w-full bg-teal-600 hover:bg-teal-700 text-lg py-6">
+            {/* Link 2: Main CTA Button */}
+            <Button 
+              size="lg" 
+              className="w-full bg-teal-600 hover:bg-teal-700 text-lg py-6"
+              onClick={handleCtaClick}
+            >
               {provider.ctaText} <ChevronRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
