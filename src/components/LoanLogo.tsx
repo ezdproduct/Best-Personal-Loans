@@ -1,8 +1,8 @@
 import React from 'react';
-import { LoanLogo as LoanLogoType } from '@/data/loanProviders';
+import { LoanPlatform } from '@/data/loanProviders';
 
 interface LoanLogoProps {
-  logoType: LoanLogoType;
+  logoType: LoanPlatform;
   size?: 'small' | 'large';
 }
 
@@ -18,41 +18,12 @@ const FundComLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
-  const baseClasses = size === 'large' ? 'h-10' : 'h-8';
-
-  switch (logoType) {
-    case 'AmeriSave':
-      return (
-        <div className="text-blue-900">
-          <span className={size === 'large' ? 'text-3xl font-bold' : 'text-xl font-bold'}>AmeriSave</span>
-          <span className="block text-xs font-medium tracking-wider">MORTGAGE</span>
-        </div>
-      );
-    case 'Credible':
-      return (
-        <span className={size === 'large' ? 'text-4xl font-extrabold text-blue-600 tracking-tighter -mt-1' : 'text-3xl font-extrabold text-blue-600 tracking-tighter'}>
-          credible
-        </span>
-      );
-    case 'Unlock':
-      return (
-        <div className="flex items-center space-x-1">
-          <span className="w-7 h-7 bg-blue-600 rounded"></span>
-          <span className={size === 'large' ? 'text-3xl font-bold text-gray-900' : 'text-xl font-bold text-gray-900'}>unlock</span>
-        </div>
-      );
-    case 'LendingClub':
-    case 'LightStream':
-    case 'BestEgg':
-      // Using placeholder image/text for logos not explicitly defined as SVG/text
-      return (
-        <div className={baseClasses}>
-            <span className="text-xl font-bold text-gray-900">{logoType}</span>
-        </div>
-      );
-    default:
-      return <span className="font-bold text-gray-900">{logoType}</span>;
-  }
+  const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
+  return (
+    <div className="h-10 flex items-center">
+      <span className={`${textSize} font-bold text-gray-900`}>{logoType}</span>
+    </div>
+  );
 };
 
 export { LoanLogo, FundComLogo };
