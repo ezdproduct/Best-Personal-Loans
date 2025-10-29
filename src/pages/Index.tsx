@@ -11,6 +11,14 @@ import RepeatedLoanSection from '@/components/RepeatedLoanSection';
 import EntryPopup from '@/components/EntryPopup';
 import { loanProviders, faqData } from '@/data/loanProviders';
 
+// --- Data logic moved outside the component for optimization ---
+const topCards = loanProviders.slice(0, 3);
+const editorsChoiceProvider = loanProviders[0];
+const nonCollapsibleTitle = "When to Get a Personal Loan";
+const nonCollapsibleFAQ = faqData.find(item => item.title === nonCollapsibleTitle);
+const collapsibleFAQs = faqData.filter(item => item.title !== nonCollapsibleTitle);
+// --- End of data logic ---
+
 const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -21,13 +29,6 @@ const Index = () => {
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, []);
-
-  const topCards = loanProviders.slice(0, 3);
-  const editorsChoiceProvider = loanProviders[0];
-
-  const nonCollapsibleTitle = "When to Get a Personal Loan";
-  const nonCollapsibleFAQ = faqData.find(item => item.title === nonCollapsibleTitle);
-  const collapsibleFAQs = faqData.filter(item => item.title !== nonCollapsibleTitle);
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
