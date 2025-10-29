@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
         <header className="py-4 flex justify-between items-center">
-            <SiteIcon className="h-10 w-10 text-white" />
+            <SiteIcon className="h-10 w-10 text-teal-300" />
             <div className="text-right text-xs text-gray-300 max-w-xs">
                 The offers below and their placement are from companies from which we receive compensation. <a href="#disclosure-section" className="underline hover:text-white">Advertising Disclosure</a>
             </div>
