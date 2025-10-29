@@ -56,7 +56,12 @@ const FeaturedLoanCard: React.FC<FeaturedLoanCardProps> = ({ provider }) => {
 
         {/* Col 4: CTA */}
         <div className="col-span-12 md:col-span-3 text-center">
-          <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center bg-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-teal-700 transition duration-300 text-lg">
+          <a 
+            href={provider.refLink} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-block w-full text-center bg-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-teal-700 transition duration-300 text-lg"
+          >
             {provider.ctaText} <ChevronRight className="w-5 h-5 inline ml-2" />
           </a>
         </div>
