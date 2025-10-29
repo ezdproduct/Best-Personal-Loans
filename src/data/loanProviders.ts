@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type LoanPlatform = 'AmeriSave' | 'Credible' | 'Unlock' | 'LendingClub' | 'LightStream' | 'Best Egg';
+export type LoanPlatform = 'Trusted Online Loans' | 'Best Creditloanexpert' | 'Seekerloans' | 'Checkdraw' | 'Hanfincal Lending' | 'Halloween Hanfincal';
 
 export interface LoanProvider {
   id: number;
@@ -8,13 +8,11 @@ export interface LoanProvider {
   platformName: LoanPlatform;
   featureTag: string;
   score: number;
-  nmls?: string;
-  reviews: number;
+  apr: string;
+  loanTerm: string;
+  minCreditScore: string;
   highlights: string[];
-  features: string[];
   refLink: string;
-  visitLinkText?: string;
-  promoBarText?: string;
   ctaText: string;
 }
 
@@ -22,107 +20,79 @@ export const loanProviders: LoanProvider[] = [
   {
     id: 1,
     rank: 1,
-    platformName: 'AmeriSave',
-    featureTag: 'For homeowners only',
-    score: 9.6,
-    nmls: '1168',
-    reviews: 16590,
-    highlights: ['Homeowners, why pay higher rates for Personal Loans?'],
-    features: [
-      'Home Equity Loans, HELOCs, 2nd mortgages, Cash Out',
-      '92% of Customers Find Savings in Minutes',
-      'Low Rates: Quick Quote & Approval',
-      'Over $200 Billion Funded, 23 Years in Business',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit AmeriSave',
-    promoBarText: '5037 people visited this site this week',
+    platformName: 'Trusted Online Loans',
+    featureTag: 'Best Rate Guarantee',
+    score: 9.5,
+    apr: '4.95% – 35.99%',
+    loanTerm: '12 – 84 months',
+    minCreditScore: '670+',
+    highlights: ['Low interest rates, flexible for all needs'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=fc8abb3d92304bff9c47',
     ctaText: 'Get My Rate',
   },
   {
     id: 2,
     rank: 2,
-    platformName: 'Credible',
-    featureTag: 'Best Rate Guarantee',
-    score: 9.8,
-    reviews: 8430,
-    highlights: ['Free to use, no hidden fees'],
-    features: [
-        'APR: 6.49%-35.99%',
-        'Loan Term: 12-120 Months',
-        'Credit Score: Fair/Good/Excellent',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit Credible',
+    platformName: 'Best Creditloanexpert',
+    featureTag: 'Accepts Bad Credit',
+    score: 9.2,
+    apr: '6.6% – 35.99%',
+    loanTerm: '36 – 60 months',
+    minCreditScore: '300+',
+    highlights: ['Approves low scores, diverse audience, transparent'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=6cccbd3f23db4452b8e9',
     ctaText: 'Get My Rate',
   },
   {
     id: 3,
     rank: 3,
-    platformName: 'Unlock',
-    featureTag: 'For homeowners only',
-    score: 9.1,
-    nmls: '2657061',
-    reviews: 1237,
-    highlights: ["Unlock Your Home's Value: Access Up to $500,000 Without a Loan"],
-    features: [
-        'Get $15,000 to $500,000 through a Home Equity Agreement (HEA)',
-        'Qualify with just a 500 credit score',
-        'No monthly payments, no interest charges',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit Unlock',
+    platformName: 'Seekerloans',
+    featureTag: 'No Hidden Fees',
+    score: 8.7,
+    apr: '6% – 36%',
+    loanTerm: '24 – 72 months',
+    minCreditScore: '600+',
+    highlights: ['Transparent process, standard security'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=54ed64efd1134a259120',
     ctaText: 'Get My Rate',
   },
   {
     id: 4,
     rank: 4,
-    platformName: 'LendingClub',
-    featureTag: '',
-    score: 9.4,
-    reviews: 6806,
-    highlights: ['Get funded just after approval'],
-    features: [
-        'APR: 7.04%-35.99%',
-        'Loan Term: 24 - 60 Months',
-        'Credit Score: Fair, Good, Excellent',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit LendingClub',
+    platformName: 'Checkdraw',
+    featureTag: 'Flexible Choices',
+    score: 8.6,
+    apr: '6% – 36%',
+    loanTerm: '24 – 72 months',
+    minCreditScore: '600+',
+    highlights: ['Flexible loan amounts, stable service'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=19f93143ab9a4d1391ae',
     ctaText: 'Get My Rate',
   },
   {
     id: 5,
     rank: 5,
-    platformName: 'LightStream',
-    featureTag: '',
-    score: 9.2,
-    reviews: 82,
-    highlights: ['Get lower rates with good credit'],
-    features: [
-        'APR: 6.94%-25.29%',
-        'Loan Term: 24 - 84 Months',
-        'Credit Score: Good, Excellent',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit LightStream',
+    platformName: 'Hanfincal Lending',
+    featureTag: 'Emergency Loans',
+    score: 8.4,
+    apr: '4.95%+',
+    loanTerm: 'Up to 60 months',
+    minCreditScore: '~700',
+    highlights: ['Specializes in small emergency loans/fast approval'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=9a591f75c5fe4b6fb177',
     ctaText: 'Get My Rate',
   },
   {
     id: 6,
     rank: 6,
-    platformName: 'Best Egg',
-    featureTag: '',
-    score: 9.5,
-    reviews: 9760,
-    highlights: ['Best for low minimum rates'],
-    features: [
-        'APR: 5.99% - 35.99%',
-        'Loan Terms: 36-60 mo',
-        'Credit Score: Fair/Good/Excellent',
-    ],
-    refLink: '#',
-    visitLinkText: 'Visit Best Egg',
+    platformName: 'Halloween Hanfincal',
+    featureTag: 'Seasonal Promo',
+    score: 8.2,
+    apr: '4.95%+',
+    loanTerm: 'Not specified',
+    minCreditScore: 'Not specified',
+    highlights: ['Special holiday offers, short-term products'],
+    refLink: 'https://clearpmf.com/ql?pm_cid=1e5317bf36394bdc96fb',
     ctaText: 'Get My Rate',
   },
 ];
