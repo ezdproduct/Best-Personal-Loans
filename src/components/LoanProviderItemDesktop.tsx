@@ -3,13 +3,18 @@ import { ChevronRight, Check, Info, Star, Users } from 'lucide-react';
 import { LoanProvider } from '@/data/loanProviders';
 import { LoanLogo } from './LoanLogo';
 import StarRating from './StarRating';
-import ScoreTooltip from './ScoreTooltip';
 
 interface LoanProviderItemProps {
   provider: LoanProvider;
 }
 
 const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) => {
+  const features = [
+    `<strong>APR:</strong> ${provider.apr}`,
+    `<strong>Loan Term:</strong> ${provider.loanTerm}`,
+    `<strong>Min. Credit Score:</strong> ${provider.minCreditScore}`,
+  ];
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 relative pt-8">
       {/* Header Tab */}
@@ -36,16 +41,15 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
           )}
         </div>
         
-        {/* Col 2: Score & Tooltip */}
+        {/* Col 2: Score */}
         <div className="col-span-2 text-center">
           <div className="flex flex-col items-center">
             <span className="text-5xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} />
-            <ScoreTooltip 
-              scores={provider.detailedScores} 
-              reviews={provider.reviews} 
-              platformName={provider.platformName}
-            />
+            {/* Removed ScoreTooltip */}
+            <div className="text-sm text-gray-500 mt-1 font-bold hover:underline cursor-pointer flex items-center">
+              Our score <Info className="w-3 h-3 ml-1" />
+            </div>
           </div>
         </div>
 
@@ -53,7 +57,7 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
         <div className="col-span-4">
           <h4 className="font-bold text-gray-900 text-lg mb-3">{provider.highlights[0]}</h4>
           <ul className="space-y-2 text-gray-700 text-sm">
-            {provider.features.map((feature, index) => (
+            {features.map((feature, index) => (
               <li key={index} className="flex items-start">
                 <Check className="text-teal-500 w-4 h-4 mt-0.5 mr-2 flex-shrink-0" />
                 <span dangerouslySetInnerHTML={{ __html: feature.replace(/:/g, '<strong>:</strong>') }} />

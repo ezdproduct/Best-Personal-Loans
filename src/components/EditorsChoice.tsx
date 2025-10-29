@@ -11,6 +11,12 @@ interface EditorsChoiceProps {
 const EditorsChoice: React.FC<EditorsChoiceProps> = ({ provider }) => {
   if (!provider) return null;
 
+  const features = [
+    `<strong>APR:</strong> ${provider.apr}`,
+    `<strong>Loan Term:</strong> ${provider.loanTerm}`,
+    `<strong>Min. Credit Score:</strong> ${provider.minCreditScore}`,
+  ];
+
   return (
     <div className="bg-gray-700 text-white rounded-lg p-6 mt-12">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
@@ -35,7 +41,7 @@ const EditorsChoice: React.FC<EditorsChoiceProps> = ({ provider }) => {
         <div className="col-span-12 md:col-span-6">
           <h4 className="font-bold text-xl mb-3">{provider.highlights[0]}</h4>
           <ul className="space-y-2">
-            {provider.features.map((feature, index) => (
+            {features.map((feature, index) => (
               <li key={index} className="flex items-start">
                 <Check className="text-teal-300 w-4 h-4 mt-0.5 mr-2 flex-shrink-0" />
                 <span dangerouslySetInnerHTML={{ __html: feature.replace(/:/g, '<strong>:</strong>') }} />
