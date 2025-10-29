@@ -17,23 +17,23 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="font-bold text-gray-900 mb-4">Categories</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="#" className="hover:underline">Best Pet Insurance</a></li>
-                <li><a href="#" className="hover:underline">Best Mortgage Loans</a></li>
-                <li><a href="#" className="hover:underline">Best Life Insurance</a></li>
-                <li><a href="#" className="hover:underline">Best Student Loans</a></li>
-                <li><a href="#" className="hover:underline">Best Debt Consolidation</a></li>
-                <li><a href="#" className="hover:underline">Best Business Loans</a></li>
+                <li><a href="https://www.fund.com/top/pet-insurance/desk/hp/" className="hover:underline">Best Pet Insurance</a></li>
+                <li><a href="https://www.fund.com/top/mortgage-purchase/desk/hp/" className="hover:underline">Best Mortgage Loans</a></li>
+                <li><a href="https://www.fund.com/top/life-insurance/desk/hp/" className="hover:underline">Best Life Insurance</a></li>
+                <li><a href="https://www.fund.com/top/private-student-loans/desk/hp/" className="hover:underline">Best Student Loans</a></li>
+                <li><a href="https://www.fund.com/top/debt-consolidation/loans/desk/hp/" className="hover:underline">Best Debt Consolidation</a></li>
+                <li><a href="https://www.fund.com/top/business-loans/desk/hp/" className="hover:underline">Best Business Loans</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-4">Info</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="#" className="hover:underline">About Us</a></li>
-                <li><a href="#" className="hover:underline">Contact Us</a></li>
-                <li><a href="#" className="hover:underline">Privacy Policy</a></li>
-                <li><a href="#" className="hover:underline">Terms Of Use</a></li>
-                <li><a href="#" className="hover:underline">DMCA Policy</a></li>
-                <li><a href="#" className="hover:underline">Human Sitemap</a></li>
+                <li><a href="https://www.fund.com/about-us/" className="hover:underline">About Us</a></li>
+                <li><a href="https://www.fund.com/contact-us/" className="hover:underline">Contact Us</a></li>
+                <li><a href="https://www.fund.com/legal/privacy-policy/" className="hover:underline">Privacy Policy</a></li>
+                <li><a href="https://www.fund.com/legal/terms-of-use/" className="hover:underline">Terms Of Use</a></li>
+                <li><a href="https://www.fund.com/legal/dmca-policy/" className="hover:underline">DMCA Policy</a></li>
+                <li><a href="https://www.fund.com/sitemap/" className="hover:underline">Human Sitemap</a></li>
               </ul>
             </div>
           </div>
