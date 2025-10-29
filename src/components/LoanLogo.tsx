@@ -21,10 +21,26 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
   const imageClass = size === 'large' ? 'h-10' : 'h-8';
 
   switch (logoType) {
+    case 'Trusted Online Loans':
+      return (
+        <img 
+          src="https://apply.trustedonlineloans.com/assets/logo-BScK9-MQ.svg" 
+          alt="Trusted Online Loans Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
+    case 'Best Creditloanexpert':
+      return (
+        <img 
+          src="https://best.creditloanexpert.com/_next/image?url=%2Flogo.png&w=640&q=75" 
+          alt="Best Creditloanexpert Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
     case 'Seekerloans':
       return (
         <img 
-          src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" 
+          src="https://seekerloans.com/assets/logo-C2F6fihU.svg" 
           alt="Seekerloans Logo" 
           className={`${imageClass} w-auto`} 
         />
@@ -46,9 +62,6 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
           className={`${imageClass} w-auto`} 
         />
       );
-    // Fallback for providers without a specific logo image
-    case 'Trusted Online Loans':
-    case 'Best Creditloanexpert':
     default:
       const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
       return (
