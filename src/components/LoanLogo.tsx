@@ -40,9 +40,9 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Seekerloans':
       return (
         <img 
-          src="https://seekerloans.com/assets/logo-C2F6fihU.svg" 
+          src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" 
           alt="Seekerloans Logo" 
-          className={`${imageClass} w-auto`} 
+          className="h-8 md:h-10 w-auto" // Adjusted size
         />
       );
     case 'Checkdraw':
@@ -50,7 +50,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
         <img 
           src="/checkdraw-logo.svg" 
           alt="Checkdraw Logo" 
-          className={`${imageClass} w-auto`} 
+          className="h-6 md:h-8 w-auto" // Adjusted size
         />
       );
     case 'Hanfincal Lending':
