@@ -3,7 +3,7 @@ import { FundComLogo } from '@/components/LoanLogo';
 
 const Header: React.FC = () => {
   return (
-    <nav className="bg-slate-800 text-center py-2 px-4">
+    <nav className="bg-slate-800 text-center py-2 px-4 hidden md:flex">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* Logo */}
         <a href="/" title="Fund.com" className="footer-logo">

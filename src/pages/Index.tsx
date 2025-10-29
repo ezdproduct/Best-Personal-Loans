@@ -26,33 +26,34 @@ const Index = () => {
       <Header />
       <HeroSection />
 
-      {/* Phần nội dung chính (với các thẻ) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-16">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 md:-mt-16">
         
-        {/* 3 Thẻ hàng đầu */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Top 3 Cards (Desktop Only) */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
           {topCards.map(provider => (
             <LoanCard key={provider.id} provider={provider} />
           ))}
         </div>
 
-        {/* Phần "What kind of loan..." */}
-        <LoanTypeSelector />
+        {/* Loan Type Selector (Desktop Only) */}
+        <div className="hidden md:block">
+            <LoanTypeSelector />
+        </div>
 
-        {/* Thanh thông tin phụ "Valid as of..." */}
+        {/* Info Bar */}
         <InfoBar />
 
-        {/* Danh sách chính */}
+        {/* Main List */}
         <div className="mt-8 space-y-6">
           {loanProviders.map(provider => (
             <LoanProviderItem key={provider.id} provider={provider} />
           ))}
         </div>
 
-        {/* Phần "Need help finding..." */}
-        <div className="mt-8 mb-8 bg-white rounded-lg shadow-lg border border-gray-200 p-6 md:p-8">
+        {/* "Need help finding..." (Desktop Only) */}
+        <div className="hidden md:block mt-8 mb-8 bg-white rounded-lg shadow-lg border border-gray-200 p-6 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                {/* Cột bên trái: Tiêu đề và biểu tượng */}
                 <div className="col-span-12 md:col-span-6 text-center md:text-left flex items-center gap-4">
                     <span className="hidden sm:inline-block text-5xl text-blue-600 bg-blue-50 p-3 rounded-full">
                       <HelpCircle className="w-12 h-12" />
@@ -61,8 +62,6 @@ const Index = () => {
                         Need help finding the right lender for you?
                     </h2>
                 </div>
-                
-                {/* Cột bên phải: Các nút */}
                 <div className="col-span-12 md:col-span-6">
                     <div className="flex flex-col sm:flex-row gap-4">
                         <StyledOutlineButton>Debt Consolidation Loan</StyledOutlineButton>
@@ -72,21 +71,19 @@ const Index = () => {
             </div>
         </div>
 
-        {/* Phần Nội dung FAQ/Văn bản */}
+        {/* FAQ Section */}
         <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-8 space-y-8 text-gray-700 leading-relaxed">
             {collapsibleFAQs.map((item, index) => (
                 <FAQSection key={index} item={item} isCollapsible={true} />
             ))}
-            
-            {/* Non-collapsible section */}
             {nonCollapsibleFAQ && <FAQSection item={nonCollapsibleFAQ} isCollapsible={false} />}
-
-            {/* Disclaimer/Disclosure */}
             <Disclosure />
         </div>
 
-        {/* Phần "Find the right lender for you" (ĐÃ TÁI CẤU TRÚC) */}
-        <RepeatedLoanSection providers={topCards} />
+        {/* Repeated Section (Desktop Only) */}
+        <div className="hidden md:block">
+            <RepeatedLoanSection providers={topCards} />
+        </div>
       </div>
       
       <MadeWithDyad />

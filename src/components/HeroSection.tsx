@@ -1,10 +1,11 @@
 import React from 'react';
-import { CheckCircle, FileText, Layers, Trophy } from 'lucide-react';
+import { CheckCircle, FileText, Layers, Trophy, CalendarDays, Clock, Home, Banknote } from 'lucide-react';
+import { FundComLogo } from './LoanLogo';
 
 const HeroSection: React.FC = () => {
   return (
     <div className="relative bg-gray-900">
-      {/* Ảnh nền */}
+      {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{ 
@@ -12,37 +13,48 @@ const HeroSection: React.FC = () => {
         }}
       >
       </div>
-      {/* Lớp phủ tối */}
-      <div className="absolute inset-0 w-full h-full bg-black/60"></div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 w-full h-full bg-black/70"></div>
       
-      {/* Nội dung Hero */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center text-white z-10">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+      {/* Hero Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-white z-10">
+        
+        {/* Mobile Header Content */}
+        <div className="md:hidden">
+            <p className="text-gray-300 text-xs mb-4">
+              The offers below and their placement are from companies from which we receive compensation. 
+              <a href="#" className="underline text-white hover:text-gray-300">Advertising Disclosure</a>
+            </p>
+            <div className="flex justify-center mb-4">
+                <FundComLogo className="h-10" />
+            </div>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-3">
           Best <span className="text-blue-400">Personal Loans</span> in 2025
         </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-6">
-          Get fast cash from top-rated lenders
-        </p>
-        <p className="max-w-3xl mx-auto text-gray-300 mb-8">
-          Compare top lenders to get the best personal loans with the lowest rates and most flexible terms. These companies offer customized loans for almost any need, from consolidating debt to home improvement.
-        </p>
+
+        <div className="flex items-center justify-center space-x-2 text-gray-200 mb-6">
+            <CalendarDays className="w-4 h-4" />
+            <span>Valid as of <strong>October 29, 2025</strong></span>
+        </div>
         
-        {/* Các tính năng */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-gray-200">
-          <div className="flex items-center space-x-2">
-            <CheckCircle className="text-blue-400 w-5 h-5" />
+        {/* Features Grid */}
+        <div className="grid grid-cols-2 gap-x-4 gap-y-5 max-w-md mx-auto text-gray-200">
+          <div className="flex items-center justify-center space-x-2">
+            <Clock className="text-blue-400 w-5 h-5" />
             <span>Quick Approvals</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <FileText className="text-blue-400 w-5 h-5" />
+          <div className="flex items-center justify-center space-x-2">
+            <Banknote className="text-blue-400 w-5 h-5" />
             <span>Transparent Fees</span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-center space-x-2">
             <Layers className="text-blue-400 w-5 h-5" />
             <span>Flexible Amounts</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <Trophy className="text-blue-400 w-5 h-5" />
+          <div className="flex items-center justify-center space-x-2">
+            <Home className="text-blue-400 w-5 h-5" />
             <span>Competitive Rates</span>
           </div>
         </div>
