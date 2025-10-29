@@ -1,8 +1,17 @@
 import React from 'react';
 import { Landmark } from 'lucide-react';
 import StyledOutlineButton from './StyledOutlineButton';
+import { loanProviders } from '@/data/loanProviders';
 
 const LoanTypeInteractiveBlock: React.FC = () => {
+  // Map buttons to the first four provider links
+  const linkButtons = [
+    { label: 'Debt Consolidation Loan', href: loanProviders[0]?.refLink || '#' },
+    { label: 'Home Improvement', href: loanProviders[1]?.refLink || '#' },
+    { label: 'Large Purchases', href: loanProviders[2]?.refLink || '#' },
+    { label: 'Other', href: loanProviders[3]?.refLink || '#' },
+  ];
+
   return (
     <div className="mt-12">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -34,10 +43,17 @@ const LoanTypeInteractiveBlock: React.FC = () => {
           {/* Right Column: Buttons */}
           <div className="col-span-12 md:col-span-6">
             <div className="flex flex-col space-y-4">
-              <StyledOutlineButton>Debt Consolidation Loan</StyledOutlineButton>
-              <StyledOutlineButton>Home Improvement</StyledOutlineButton>
-              <StyledOutlineButton>Large Purchases</StyledOutlineButton>
-              <StyledOutlineButton>Other</StyledOutlineButton>
+              {linkButtons.map((button) => (
+                <a
+                  key={button.label}
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <StyledOutlineButton>{button.label}</StyledOutlineButton>
+                </a>
+              ))}
             </div>
           </div>
         </div>

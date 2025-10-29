@@ -11,7 +11,7 @@ const StyledOutlineButton: React.FC<StyledOutlineButtonProps> = ({ children, cla
     <Button
       variant="outline"
       className={cn(
-        "w-full py-4 text-lg font-semibold border-gray-300 shadow-sm hover:border-teal-500 hover:shadow-md hover:-translate-y-0.5 transition duration-200 bg-white text-gray-800 hover:bg-white",
+        "w-full py-4 text-lg font-semibold border-gray-300 hover:border-gray-400 transition-colors bg-white text-gray-800 hover:bg-gray-50",
         className
       )}
       {...props}
