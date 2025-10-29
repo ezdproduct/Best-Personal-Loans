@@ -6,6 +6,7 @@ import LoanProviderItem from '@/components/LoanProviderItem';
 import FAQSection from '@/components/FAQSection';
 import Disclosure from '@/components/Disclosure';
 import Footer from '@/components/layout/Footer';
+import LoanTypeInteractiveBlock from '@/components/LoanTypeInteractiveBlock';
 import { loanProviders, faqData } from '@/data/loanProviders';
 
 const Index = () => {
@@ -26,6 +27,9 @@ const Index = () => {
             <LoanProviderItem key={provider.id} provider={provider} />
           ))}
         </div>
+
+        {/* NEW INTERACTIVE BLOCK */}
+        <LoanTypeInteractiveBlock />
 
         {/* FAQ Section */}
         <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-12 space-y-8 text-gray-700 leading-relaxed">
