@@ -1,21 +1,6 @@
 import React from 'react';
 import { Landmark } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
-const LoanTypeButton: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // Custom styling approximation for loan-type-button
-    const classes = cn(
-        "text-gray-800 font-semibold py-4 px-6 rounded-lg text-lg text-center",
-        "bg-white border border-blue-200 shadow-sm transition duration-200",
-        "hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 w-full"
-    );
-
-    return (
-        <button className={classes}>
-            {children}
-        </button>
-    );
-};
+import StyledOutlineButton from './StyledOutlineButton';
 
 const LoanTypeSelector: React.FC = () => {
   return (
@@ -50,10 +35,10 @@ const LoanTypeSelector: React.FC = () => {
         {/* Cột bên phải: Các nút */}
         <div className="col-span-12 md:col-span-6">
           <div className="flex flex-col space-y-4">
-            <LoanTypeButton>Debt Consolidation Loan</LoanTypeButton>
-            <LoanTypeButton>Home Improvement</LoanTypeButton>
-            <LoanTypeButton>Large Purchases</LoanTypeButton>
-            <LoanTypeButton>Other</LoanTypeButton>
+            <StyledOutlineButton className="py-4 text-lg">Debt Consolidation Loan</StyledOutlineButton>
+            <StyledOutlineButton className="py-4 text-lg">Home Improvement</StyledOutlineButton>
+            <StyledOutlineButton className="py-4 text-lg">Large Purchases</StyledOutlineButton>
+            <StyledOutlineButton className="py-4 text-lg">Other</StyledOutlineButton>
           </div>
         </div>
       </div>
