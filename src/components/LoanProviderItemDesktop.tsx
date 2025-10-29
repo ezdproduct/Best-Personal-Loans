@@ -24,9 +24,9 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
       </div>
       
       {/* Content */}
-      <div className="p-6 grid grid-cols-12 gap-6 items-center">
+      <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
         {/* Col 1: Logo & NMLS/Reviews */}
-        <div className="col-span-3">
+        <div className="col-span-12 md:col-span-3">
           <LoanLogo logoType={provider.platformName} size="large" />
           {provider.nmls && <span className="text-xs text-gray-500 mt-1 block">NMLS# {provider.nmls}</span>}
           
@@ -42,11 +42,10 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
         </div>
         
         {/* Col 2: Score */}
-        <div className="col-span-2 text-center">
+        <div className="col-span-12 md:col-span-2 text-center">
           <div className="flex flex-col items-center">
             <span className="text-5xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} />
-            {/* Removed ScoreTooltip */}
             <div className="text-sm text-gray-500 mt-1 font-bold hover:underline cursor-pointer flex items-center">
               Our score <Info className="w-3 h-3 ml-1" />
             </div>
@@ -54,7 +53,7 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
         </div>
 
         {/* Col 3: Features */}
-        <div className="col-span-4">
+        <div className="col-span-12 md:col-span-4">
           <h4 className="font-bold text-gray-900 text-lg mb-3">{provider.highlights[0]}</h4>
           <ul className="space-y-2 text-gray-700 text-sm">
             {features.map((feature, index) => (
@@ -67,7 +66,7 @@ const LoanProviderItemDesktop: React.FC<LoanProviderItemProps> = ({ provider }) 
         </div>
 
         {/* Col 4: CTA */}
-        <div className="col-span-3 text-center">
+        <div className="col-span-12 md:col-span-3 text-center">
           <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center bg-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-teal-700 transition duration-300 text-lg">
             {provider.ctaText} <ChevronRight className="w-5 h-5 inline ml-2" />
           </a>

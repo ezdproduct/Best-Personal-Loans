@@ -33,7 +33,6 @@ const LoanProviderItemMobile: React.FC<LoanProviderItemProps> = ({ provider }) =
           <div className="text-right flex flex-col items-end">
             <span className="text-3xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} />
-            {/* Removed ScoreTooltip */}
             <div className="text-xs text-gray-500 mt-1 font-bold hover:underline cursor-pointer flex items-center">
               Our score <Info className="w-3 h-3 ml-1" />
             </div>

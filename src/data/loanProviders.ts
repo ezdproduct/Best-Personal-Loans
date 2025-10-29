@@ -7,20 +7,17 @@ export interface LoanProvider {
   rank: number;
   platformName: LoanPlatform;
   featureTag: string;
-  score: number; // Total score
+  score: number;
   apr: string;
   loanTerm: string;
   minCreditScore: string;
   highlights: string[];
   refLink: string;
   ctaText: string;
-  
-  // --- Properties added to fix TypeScript errors ---
   nmls?: string;
   reviews: number;
   visitLinkText?: string;
   promoBarText?: string;
-  // --- End of added properties ---
 }
 
 export const loanProviders: LoanProvider[] = [
@@ -33,13 +30,13 @@ export const loanProviders: LoanProvider[] = [
     apr: '4.95% – 35.99%',
     loanTerm: '12 – 84 months',
     minCreditScore: '670+',
-    highlights: ['Lãi suất thấp, linh hoạt cho mọi nhu cầu'],
+    highlights: ['Low interest rates, flexible for all needs'],
     refLink: 'https://clearpmf.com/ql?pm_cid=fc8abb3d92304bff9c47',
+    ctaText: 'Get My Rate',
+    reviews: 16590,
+    nmls: '1168',
     visitLinkText: 'Visit Trusted Online Loans',
     promoBarText: '4437 people visited this site this week',
-    ctaText: 'Get My Rate',
-    reviews: 16590, // Added reviews
-    nmls: '1168', // Added nmls
   },
   {
     id: 2,
@@ -50,11 +47,11 @@ export const loanProviders: LoanProvider[] = [
     apr: '6.6% – 35.99%',
     loanTerm: '36 – 60 months',
     minCreditScore: '300+',
-    highlights: ['Xét duyệt điểm thấp, đa dạng đối tượng, minh bạch'],
+    highlights: ['Approves low scores, diverse audience, transparent'],
     refLink: 'https://clearpmf.com/ql?pm_cid=6cccbd3f23db4452b8e9',
-    visitLinkText: 'Visit Best Creditloanexpert',
     ctaText: 'Get My Rate',
-    reviews: 8430, // Added reviews
+    reviews: 8430,
+    visitLinkText: 'Visit Best Creditloanexpert',
   },
   {
     id: 3,
@@ -65,11 +62,11 @@ export const loanProviders: LoanProvider[] = [
     apr: '6% – 36%',
     loanTerm: '24 – 72 months',
     minCreditScore: '600+',
-    highlights: ['Quy trình minh bạch, bảo mật tiêu chuẩn'],
+    highlights: ['Transparent process, standard security'],
     refLink: 'https://clearpmf.com/ql?pm_cid=54ed64efd1134a259120',
-    visitLinkText: 'Visit Seekerloans',
     ctaText: 'Get My Rate',
-    reviews: 1237, // Added reviews
+    reviews: 1237,
+    visitLinkText: 'Visit Seekerloans',
   },
   {
     id: 4,
@@ -80,10 +77,10 @@ export const loanProviders: LoanProvider[] = [
     apr: '6% – 36%',
     loanTerm: '24 – 72 months',
     minCreditScore: '600+',
-    highlights: ['Khoản vay linh hoạt, dịch vụ ổn định'],
+    highlights: ['Flexible loan amounts, stable service'],
     refLink: 'https://clearpmf.com/ql?pm_cid=19f93143ab9a4d1391ae',
     ctaText: 'Get My Rate',
-    reviews: 0, // Added reviews
+    reviews: 0,
   },
   {
     id: 5,
@@ -92,12 +89,12 @@ export const loanProviders: LoanProvider[] = [
     featureTag: 'Emergency Loans',
     score: 8.4,
     apr: '4.95%+',
-    loanTerm: 'Đến 60 tháng',
+    loanTerm: 'Up to 60 months',
     minCreditScore: '~700',
-    highlights: ['Chuyên cấp cứu tài chính khoản nhỏ/duyệt nhanh'],
+    highlights: ['Specializes in small emergency loans/fast approval'],
     refLink: 'https://clearpmf.com/ql?pm_cid=9a591f75c5fe4b6fb177',
     ctaText: 'Get My Rate',
-    reviews: 0, // Added reviews
+    reviews: 0,
   },
   {
     id: 6,
@@ -106,12 +103,12 @@ export const loanProviders: LoanProvider[] = [
     featureTag: 'Seasonal Promo',
     score: 8.2,
     apr: '4.95%+',
-    loanTerm: 'Không rõ',
-    minCreditScore: 'Không rõ',
-    highlights: ['Ưu đãi đặc biệt dịp lễ, sản phẩm ngắn hạn'],
+    loanTerm: 'Not specified',
+    minCreditScore: 'Not specified',
+    highlights: ['Special holiday offers, short-term products'],
     refLink: 'https://clearpmf.com/ql?pm_cid=1e5317bf36394bdc96fb',
     ctaText: 'Get My Rate',
-    reviews: 0, // Added reviews
+    reviews: 0,
   },
 ];
 

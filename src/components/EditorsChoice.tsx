@@ -24,10 +24,12 @@ const EditorsChoice: React.FC<EditorsChoiceProps> = ({ provider }) => {
         <div className="col-span-12 md:col-span-3 flex flex-col items-center text-center">
           <LoanLogo logoType={provider.platformName} size="large" />
           {provider.nmls && <span className="text-xs text-gray-400 mt-1">NMLS# {provider.nmls}</span>}
-          <div className="mt-4 flex items-center space-x-2">
-            <span className="font-bold">{provider.reviews.toLocaleString()} Reviews</span>
-            <span className="text-sm">Trustpilot</span>
-          </div>
+          {provider.reviews > 0 && (
+            <div className="mt-4 flex items-center space-x-2">
+              <span className="font-bold">{provider.reviews.toLocaleString()} Reviews</span>
+              <span className="text-sm">Trustpilot</span>
+            </div>
+          )}
           <div className="mt-4">
             <span className="text-5xl font-extrabold">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} />
