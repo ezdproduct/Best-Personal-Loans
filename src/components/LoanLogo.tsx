@@ -21,6 +21,13 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
   const imageClass = size === 'large' ? 'h-10' : 'h-8';
 
   switch (logoType) {
+    case 'AmeriSave':
+      return (
+        <div className="text-teal-700">
+          <span className="text-3xl font-bold">AMERISAVE</span>
+          <span className="block text-xs font-medium tracking-wider">MORTGAGE</span>
+        </div>
+      );
     case 'Trusted Online Loans':
       return (
         <img 

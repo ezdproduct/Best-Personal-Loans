@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import HeroSection from '@/components/HeroSection';
 import InfoBar from '@/components/InfoBar';
@@ -9,19 +9,30 @@ import Footer from '@/components/layout/Footer';
 import LoanTypeInteractiveBlock from '@/components/LoanTypeInteractiveBlock';
 import EditorsChoice from '@/components/EditorsChoice';
 import RepeatedLoanSection from '@/components/RepeatedLoanSection';
+import EntryPopup from '@/components/EntryPopup';
 import { loanProviders, faqData } from '@/data/loanProviders';
 
 const Index = () => {
-  const topCards = loanProviders.slice(0, 3);
-  const editorsChoiceProvider = loanProviders[0]; // Using the first provider as the editor's choice
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Determine which FAQs should be collapsible
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsPopupOpen(true);
+    }, 2000); // Open popup after 2 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on component unmount
+  }, []);
+
+  const topCards = loanProviders.slice(0, 3);
+  const editorsChoiceProvider = loanProviders[0];
+
   const nonCollapsibleTitle = "When to Get a Personal Loan";
   const nonCollapsibleFAQ = faqData.find(item => item.title === nonCollapsibleTitle);
   const collapsibleFAQs = faqData.filter(item => item.title !== nonCollapsibleTitle);
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
+      <EntryPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       <HeroSection topProviders={topCards} />
 
       {/* Main Content */}
@@ -36,23 +47,17 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Interactive Block */}
         <LoanTypeInteractiveBlock />
-
-        {/* Editor's Choice Section */}
         <EditorsChoice provider={editorsChoiceProvider} />
 
-        {/* FAQ Section */}
         <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-12 space-y-8 text-gray-700 leading-relaxed">
             {collapsibleFAQs.map((item, index) => (
                 <FAQSection key={index} item={item} isCollapsible={true} />
             ))}
-            {/* Non-collapsible section */}
             {nonCollapsibleFAQ && <FAQSection item={nonCollapsibleFAQ} isCollapsible={false} />}
             <Disclosure />
         </div>
 
-        {/* Repeated Loan Section */}
         <RepeatedLoanSection providers={topCards} />
       </div>
       

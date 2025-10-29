@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type LoanPlatform = 'Trusted Online Loans' | 'Best Creditloanexpert' | 'Seekerloans' | 'Checkdraw' | 'Hanfincal Lending' | 'Halloween Hanfincal';
+export type LoanPlatform = 'Trusted Online Loans' | 'Best Creditloanexpert' | 'Seekerloans' | 'Checkdraw' | 'Hanfincal Lending' | 'Halloween Hanfincal' | 'AmeriSave';
 
 export interface DetailedScore {
   trustpilot: number; // Score out of 10
