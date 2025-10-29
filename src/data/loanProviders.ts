@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type LoanPlatform = 'AmeriSave' | 'Credible' | 'Unlock' | 'LendingClub' | 'LightStream' | 'Best Egg';
+export type LoanPlatform = 'AmeriSave' | 'Credible' | 'Unlock' | 'LendingClub' | 'LightStream' | 'Best Egg' | 'Trusted Online Loans' | 'Best Creditloanexpert' | 'Seekerloans' | 'Checkdraw' | 'Hanfincal Lending' | 'Halloween Hanfincal';
 
 export interface LoanProvider {
   id: number;
