@@ -12,7 +12,7 @@ interface EntryPopupProps {
 const EntryPopup: React.FC<EntryPopupProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-11/12 p-0 overflow-hidden rounded-lg shadow-2xl gap-0">
+      <DialogContent className="max-w-4xl w-11/12 p-0 overflow-hidden rounded-lg shadow-2xl gap-0 hide-default-close">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Left side - Image */}
           <div className="relative h-64 md:h-auto hidden md:block">
