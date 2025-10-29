@@ -24,7 +24,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Trusted Online Loans':
       return (
         <img 
-          src="https://apply.trustedonlineloans.com/assets/logo-BScK9-MQ.svg" 
+          src="/trustedonlineloans-logo.svg" 
           alt="Trusted Online Loans Logo" 
           className={`${imageClass} w-auto`} 
         />
@@ -32,7 +32,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Best Creditloanexpert':
       return (
         <img 
-          src="https://best.creditloanexpert.com/_next/image?url=%2Flogo.png&w=640&q=75" 
+          src="/creditloanexpert-logo.svg" 
           alt="Best Creditloanexpert Logo" 
           className={`${imageClass} w-auto`} 
         />
@@ -40,9 +40,9 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Seekerloans':
       return (
         <img 
-          src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" 
+          src="/seekerloans-logo.svg" 
           alt="Seekerloans Logo" 
-          className="h-8 md:h-10 w-auto" // Adjusted size
+          className="h-8 md:h-10 w-auto"
         />
       );
     case 'Checkdraw':
@@ -50,7 +50,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
         <img 
           src="/checkdraw-logo.svg" 
           alt="Checkdraw Logo" 
-          className="h-6 md:h-8 w-auto" // Adjusted size
+          className="h-6 md:h-8 w-auto"
         />
       );
     case 'Hanfincal Lending':
