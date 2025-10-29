@@ -1,8 +1,8 @@
 import React from 'react';
-import { FundComLogo } from './LoanLogo';
 import { LoanProvider } from '@/data/loanProviders';
 import LoanCard from './LoanCard';
 import { Briefcase, Home, Layers, Zap } from 'lucide-react';
+import SiteIcon from './SiteIcon';
 
 interface HeroSectionProps {
     topProviders: LoanProvider[];
@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
         <header className="py-4 flex justify-between items-center">
-            <FundComLogo className="h-10" />
+            <SiteIcon className="h-10 w-10 text-white" />
             <div className="text-right text-xs text-gray-300 max-w-xs">
                 The offers below and their placement are from companies from which we receive compensation. <a href="#disclosure-section" className="underline hover:text-white">Advertising Disclosure</a>
             </div>
