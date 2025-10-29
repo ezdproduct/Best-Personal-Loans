@@ -2,17 +2,26 @@ import React from 'react';
 
 export type LoanPlatform = 'Trusted Online Loans' | 'Best Creditloanexpert' | 'Seekerloans' | 'Checkdraw' | 'Hanfincal Lending' | 'Halloween Hanfincal';
 
+export interface DetailedScore {
+  trustpilot: number; // Score out of 10
+  brandReputation: number; // Score out of 10
+  popularity: number; // Score out of 10
+}
+
 export interface LoanProvider {
   id: number;
   rank: number;
   platformName: LoanPlatform;
   featureTag: string;
-  score: number;
-  apr: string;
-  loanTerm: string;
-  minCreditScore: string;
+  score: number; // Total score
+  detailedScores: DetailedScore;
+  nmls?: string;
+  reviews: number;
   highlights: string[];
+  features: string[];
   refLink: string;
+  visitLinkText?: string;
+  promoBarText?: string;
   ctaText: string;
 }
 
@@ -23,11 +32,18 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Trusted Online Loans',
     featureTag: 'Best Rate Guarantee',
     score: 9.5,
-    apr: '4.95% – 35.99%',
-    loanTerm: '12 – 84 months',
-    minCreditScore: '670+',
+    detailedScores: { trustpilot: 9.2, brandReputation: 9.7, popularity: 10 }, // Mocked scores for UI functionality
+    nmls: '1168',
+    reviews: 16590,
     highlights: ['Low interest rates, flexible for all needs'],
+    features: [
+      'APR: 4.95% – 35.99%',
+      'Loan Term: 12 – 84 months',
+      'Min. Credit Score: 670+',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=fc8abb3d92304bff9c47',
+    visitLinkText: 'Visit Trusted Online Loans',
+    promoBarText: '4437 people visited this site this week',
     ctaText: 'Get My Rate',
   },
   {
@@ -36,11 +52,16 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Best Creditloanexpert',
     featureTag: 'Accepts Bad Credit',
     score: 9.2,
-    apr: '6.6% – 35.99%',
-    loanTerm: '36 – 60 months',
-    minCreditScore: '300+',
+    detailedScores: { trustpilot: 10, brandReputation: 9.5, popularity: 9.9 }, // Mocked scores for UI functionality
+    reviews: 8430,
     highlights: ['Approves low scores, diverse audience, transparent'],
+    features: [
+        'APR: 6.6% – 35.99%',
+        'Loan Term: 36 – 60 months',
+        'Min. Credit Score: 300+',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=6cccbd3f23db4452b8e9',
+    visitLinkText: 'Visit Best Creditloanexpert',
     ctaText: 'Get My Rate',
   },
   {
@@ -49,11 +70,16 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Seekerloans',
     featureTag: 'No Hidden Fees',
     score: 8.7,
-    apr: '6% – 36%',
-    loanTerm: '24 – 72 months',
-    minCreditScore: '600+',
+    detailedScores: { trustpilot: 8.8, brandReputation: 9.0, popularity: 9.5 }, // Mocked scores for UI functionality
+    reviews: 1237,
     highlights: ['Transparent process, standard security'],
+    features: [
+        'APR: 6% – 36%',
+        'Loan Term: 24 – 72 months',
+        'Min. Credit Score: 600+',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=54ed64efd1134a259120',
+    visitLinkText: 'Visit Seekerloans',
     ctaText: 'Get My Rate',
   },
   {
@@ -62,10 +88,14 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Checkdraw',
     featureTag: 'Flexible Choices',
     score: 8.6,
-    apr: '6% – 36%',
-    loanTerm: '24 – 72 months',
-    minCreditScore: '600+',
+    detailedScores: { trustpilot: 8.5, brandReputation: 8.5, popularity: 8.5 },
+    reviews: 0,
     highlights: ['Flexible loan amounts, stable service'],
+    features: [
+        'APR: 6% – 36%',
+        'Loan Term: 24 – 72 months',
+        'Min. Credit Score: 600+',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=19f93143ab9a4d1391ae',
     ctaText: 'Get My Rate',
   },
@@ -75,10 +105,14 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Hanfincal Lending',
     featureTag: 'Emergency Loans',
     score: 8.4,
-    apr: '4.95%+',
-    loanTerm: 'Up to 60 months',
-    minCreditScore: '~700',
+    detailedScores: { trustpilot: 8.0, brandReputation: 8.0, popularity: 8.0 },
+    reviews: 0,
     highlights: ['Specializes in small emergency loans/fast approval'],
+    features: [
+        'APR: 4.95%+',
+        'Loan Term: Up to 60 months',
+        'Min. Credit Score: ~700',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=9a591f75c5fe4b6fb177',
     ctaText: 'Get My Rate',
   },
@@ -88,10 +122,14 @@ export const loanProviders: LoanProvider[] = [
     platformName: 'Halloween Hanfincal',
     featureTag: 'Seasonal Promo',
     score: 8.2,
-    apr: '4.95%+',
-    loanTerm: 'Not specified',
-    minCreditScore: 'Not specified',
+    detailedScores: { trustpilot: 7.5, brandReputation: 7.5, popularity: 7.5 },
+    reviews: 0,
     highlights: ['Special holiday offers, short-term products'],
+    features: [
+        'APR: 4.95%+',
+        'Loan Term: Not specified',
+        'Min. Credit Score: Not specified',
+    ],
     refLink: 'https://clearpmf.com/ql?pm_cid=1e5317bf36394bdc96fb',
     ctaText: 'Get My Rate',
   },
