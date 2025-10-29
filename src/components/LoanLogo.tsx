@@ -18,10 +18,27 @@ const FundComLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
-  const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
+  const imageSize = size === 'large' ? 'h-10' : 'h-8';
+
+  const renderLogo = () => {
+    switch (logoType) {
+      case 'Seekerloans':
+        return <img src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" alt="Seekerloans Logo" className={`${imageSize} w-auto`} />;
+      case 'Checkdraw':
+        return <img src="https://checkdraw.com/static/media/checkdraw-logo.6dfd7c80756a8c916c77.png" alt="Checkdraw Logo" className={`${imageSize} w-auto`} />;
+      case 'Hanfincal Lending':
+        return <img src="https://loan.hanfincal.com/static/media/hanfincal-logo.6dfd7c80756a8c916c77.png" alt="Hanfincal Lending Logo" className={`${imageSize} w-auto`} />;
+      case 'Halloween Hanfincal':
+        return <img src="https://halloween.hanfincal.com/static/media/hanfincal-logo.6dfd7c80756a8c916c77.png" alt="Halloween Hanfincal Logo" className={`${imageSize} w-auto`} />;
+      default:
+        const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
+        return <span className={`${textSize} font-bold text-gray-900`}>{logoType}</span>;
+    }
+  };
+
   return (
     <div className="h-10 flex items-center">
-      <span className={`${textSize} font-bold text-gray-900`}>{logoType}</span>
+      {renderLogo()}
     </div>
   );
 };
