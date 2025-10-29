@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, Check, Info } from 'lucide-react';
+import { ChevronRight, Check, Info, Star, Users } from 'lucide-react';
 import { LoanProvider } from '@/data/loanProviders';
 import { LoanLogo } from './LoanLogo';
 import StarRating from './StarRating';
@@ -9,18 +9,15 @@ interface LoanProviderItemProps {
 }
 
 const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
-  const features = [
-    `<strong>APR:</strong> ${provider.apr}`,
-    `<strong>Loan Term:</strong> ${provider.loanTerm}`,
-    `<strong>Min. Credit Score:</strong> ${provider.minCreditScore}`,
-  ];
+  // FIX: Use the 'features' array directly from the provider data.
+  const features = provider.features;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
       {/* Header */}
-      <div className="bg-teal-600 text-white p-3 flex items-center space-x-3">
-        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-teal-600 font-bold text-md">{provider.rank}</span>
-        {provider.featureTag && <span className="font-semibold">{provider.featureTag}</span>}
+      <div className="bg-gray-50 border-b border-gray-200 p-3 flex items-center space-x-3">
+        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 font-bold text-sm">{provider.rank}</span>
+        {provider.featureTag && <span className="font-semibold text-sm text-gray-800">{provider.featureTag}</span>}
       </div>
       
       {/* Mobile Layout */}
@@ -28,6 +25,7 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
         <div className="flex justify-between items-start">
           <div>
             <LoanLogo logoType={provider.platformName} size="large" />
+            {provider.nmls && <span className="text-xs text-gray-500 mt-1 block">NMLS# {provider.nmls}</span>}
           </div>
           <div className="text-right flex flex-col items-end">
             <span className="text-3xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
@@ -37,11 +35,9 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
             </div>
           </div>
         </div>
-
         <div className="border border-blue-200 bg-blue-50 text-blue-800 font-semibold rounded-md p-3 text-center text-sm">
           {provider.highlights[0]}
         </div>
-
         <ul className="space-y-2 text-gray-700 text-sm">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
@@ -50,19 +46,37 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
             </li>
           ))}
         </ul>
-
         <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center bg-teal-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-teal-800 transition duration-300 text-lg">
           {provider.ctaText} <ChevronRight className="w-5 h-5 inline ml-2" />
         </a>
+        {provider.reviews > 0 && (
+          <div className="text-center flex items-center justify-center space-x-2 text-sm text-gray-600">
+            <span className="font-bold">{provider.reviews.toLocaleString()} Reviews</span>
+            <span className="flex items-center">
+              <Star className="fill-green-500 text-green-500 w-4 h-4 mr-1" />
+              <strong>Trustpilot</strong>
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Desktop Layout */}
       <div className="hidden md:grid md:grid-cols-12 gap-6 items-center p-6">
         <div className="col-span-12 md:col-span-3">
           <LoanLogo logoType={provider.platformName} size="large" />
+          {provider.nmls && <span className="text-xs text-gray-500 mt-1 block">NMLS# {provider.nmls}</span>}
+          {provider.reviews > 0 && (
+            <div className="mt-3 flex items-center space-x-2">
+              <span className="font-bold text-gray-800">{provider.reviews.toLocaleString()} Reviews</span>
+              <span className="flex items-center text-sm text-gray-700">
+                <Star className="fill-green-500 text-green-500 w-4 h-4 mr-1" />
+                <strong>Trustpilot</strong>
+              </span>
+            </div>
+          )}
         </div>
-        <div className="col-span-12 md:col-span-2">
-          <div className="flex flex-col items-start md:items-center">
+        <div className="col-span-12 md:col-span-2 text-center">
+          <div className="flex flex-col items-center">
             <span className="text-5xl font-extrabold text-gray-900">{provider.score.toFixed(1)}</span>
             <StarRating score={provider.score} />
             <div className="text-sm text-gray-500 mt-1 font-bold hover:underline cursor-pointer flex items-center">
@@ -71,22 +85,33 @@ const LoanProviderItem: React.FC<LoanProviderItemProps> = ({ provider }) => {
           </div>
         </div>
         <div className="col-span-12 md:col-span-4">
-          <h4 className="font-bold text-gray-900 text-xl mb-3">{provider.highlights[0]}</h4>
-          <ul className="space-y-2 text-gray-700">
+          <h4 className="font-bold text-gray-900 text-lg mb-3">{provider.highlights[0]}</h4>
+          <ul className="space-y-2 text-gray-700 text-sm">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <Check className="text-green-500 w-5 h-5 text-sm mt-1 mr-1 flex-shrink-0" />
+                <Check className="text-teal-500 w-4 h-4 mt-0.5 mr-2 flex-shrink-0" />
                 <span dangerouslySetInnerHTML={{ __html: feature }} />
               </li>
             ))}
           </ul>
         </div>
         <div className="col-span-12 md:col-span-3 text-center">
-          <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center bg-blue-600 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 text-lg">
+          <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center bg-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-teal-700 transition duration-300 text-lg">
             {provider.ctaText} <ChevronRight className="w-5 h-5 inline ml-2" />
           </a>
+          {provider.visitLinkText && <a href={provider.refLink} target="_blank" rel="noopener noreferrer" className="block text-teal-600 hover:underline mt-3 font-semibold">{provider.visitLinkText}</a>}
         </div>
       </div>
+
+      {/* Promo Bar */}
+      {provider.promoBarText && (
+        <div className="bg-teal-50 border-t border-teal-200 px-6 py-2 text-sm">
+          <div className="flex items-center justify-center text-teal-800 font-semibold">
+            <Users className="w-4 h-4 mr-2" />
+            <span>{provider.promoBarText}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
