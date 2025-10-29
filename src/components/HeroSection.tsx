@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
         <header className="py-4 flex justify-between items-center">
             <FundComLogo className="h-10" />
             <div className="text-right text-xs text-gray-300 max-w-xs">
-                The offers below and their placement are from companies from which we receive compensation. <a href="#" className="underline hover:text-white">Advertising Disclosure</a>
+                The offers below and their placement are from companies from which we receive compensation. <a href="#disclosure-section" className="underline hover:text-white">Advertising Disclosure</a>
             </div>
         </header>
 

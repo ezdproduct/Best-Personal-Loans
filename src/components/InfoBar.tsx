@@ -9,7 +9,7 @@ const InfoBar: React.FC = () => {
           <CalendarCheck className="text-green-600 w-4 h-4" />
           <span>Valid as of <strong>October 28, 2025</strong></span>
         </div>
-        <a href="#" className="flex items-center space-x-1 text-blue-600 hover:underline">
+        <a href="#disclosure-section" className="flex items-center space-x-1 text-blue-600 hover:underline">
           <span>How our total score works</span>
           <Info className="w-4 h-4" />
         </a>
