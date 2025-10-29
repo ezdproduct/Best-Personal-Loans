@@ -18,37 +18,25 @@ const FundComLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
-  const imageClass = size === 'large' ? 'h-10' : 'h-8';
-
   switch (logoType) {
-    case 'Seekerloans':
+    case 'AmeriSave':
       return (
-        <img 
-          src="https://seekerloans.com/wp-content/uploads/2024/04/logo.svg" 
-          alt="Seekerloans Logo" 
-          className={`${imageClass} w-auto`} 
-        />
+        <div className="text-teal-700">
+          <span className="text-3xl font-bold">AMERISAVE</span>
+          <span className="block text-xs font-medium tracking-wider">MORTGAGE</span>
+        </div>
       );
-    case 'Checkdraw':
+    case 'Credible':
       return (
-        <img 
-          src="https://checkdraw.com/static/media/checkdraw-logo.6dfd7c80756a8c916c77.png" 
-          alt="Checkdraw Logo" 
-          className={`${imageClass} w-auto`} 
-        />
+        <span className="text-4xl font-extrabold text-blue-600 tracking-tighter -mt-1">credible</span>
       );
-    case 'Hanfincal Lending':
-    case 'Halloween Hanfincal':
+    case 'Unlock':
       return (
-        <img 
-          src="https://loan.hanfincal.com/static/media/hanfincal-logo.6dfd7c80756a8c916c77.png" 
-          alt="Hanfincal Logo" 
-          className={`${imageClass} w-auto`} 
-        />
+        <div className="flex items-center space-x-1">
+          <span className="w-8 h-8 bg-blue-600 rounded"></span>
+          <span className="text-4xl font-bold text-gray-900">unlock</span>
+        </div>
       );
-    // Fallback for providers without a specific logo image
-    case 'Trusted Online Loans':
-    case 'Best Creditloanexpert':
     default:
       const textSize = size === 'large' ? 'text-2xl' : 'text-xl';
       return (

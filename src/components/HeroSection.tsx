@@ -1,62 +1,54 @@
 import React from 'react';
-import { CheckCircle, FileText, Layers, Trophy, CalendarDays, Clock, Home, Banknote } from 'lucide-react';
 import { FundComLogo } from './LoanLogo';
+import { LoanProvider } from '@/data/loanProviders';
+import LoanCard from './LoanCard';
+import { Briefcase, Home, Layers, Zap } from 'lucide-react';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+    topProviders: LoanProvider[];
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ topProviders }) => {
   return (
-    <div className="relative bg-gray-900">
-      {/* Background Image */}
+    <div className="relative bg-gray-800 text-white overflow-hidden">
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        className="absolute inset-0 w-full h-full bg-cover bg-center opacity-30"
         style={{ 
           backgroundImage: `url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80')` 
         }}
-      >
-      </div>
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 w-full h-full bg-black/70"></div>
+      ></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-gray-100 via-transparent to-transparent"></div>
       
-      {/* Hero Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-white z-10">
-        
-        {/* Mobile Header Content */}
-        <div className="md:hidden">
-            <p className="text-gray-300 text-xs mb-4">
-              The offers below and their placement are from companies from which we receive compensation. 
-              <a href="#" className="underline text-white hover:text-gray-300">Advertising Disclosure</a>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
+        <header className="py-4 flex justify-between items-center">
+            <FundComLogo className="h-10" />
+            <div className="text-right text-xs text-gray-300 max-w-xs">
+                The offers below and their placement are from companies from which we receive compensation. <a href="#" className="underline hover:text-white">Advertising Disclosure</a>
+            </div>
+        </header>
+
+        <div className="text-center py-12 md:py-20">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-3">
+              Best <span className="text-teal-300">Personal Loans</span> in 2025
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 mb-4">
+              Get fast cash from top-rated lenders
             </p>
-            <div className="flex justify-center mb-4">
-                <FundComLogo className="h-10" />
+            <p className="max-w-3xl mx-auto text-gray-300 mb-8">
+              Compare top lenders to get the best personal loans with the lowest rates and most flexible terms. These companies offer customized loans for almost any need, from consolidating debt to home improvement.
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-x-12 text-gray-200">
+                <div className="flex items-center space-x-2"><Zap className="w-4 h-4 text-teal-300" /><span>Quick Approvals</span></div>
+                <div className="flex items-center space-x-2"><Briefcase className="w-4 h-4 text-teal-300" /><span>Transparent Fees</span></div>
+                <div className="flex items-center space-x-2"><Layers className="w-4 h-4 text-teal-300" /><span>Flexible Amounts</span></div>
+                <div className="flex items-center space-x-2"><Home className="w-4 h-4 text-teal-300" /><span>Competitive Rates</span></div>
             </div>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-3">
-          Best <span className="text-blue-400">Personal Loans</span> in 2025
-        </h1>
-
-        <div className="flex items-center justify-center space-x-2 text-gray-200 mb-6">
-            <CalendarDays className="w-4 h-4" />
-            <span>Valid as of <strong>October 29, 2025</strong></span>
-        </div>
-        
-        {/* Features Grid */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-5 max-w-md mx-auto text-gray-200">
-          <div className="flex items-center justify-center space-x-2">
-            <Clock className="text-blue-400 w-5 h-5" />
-            <span>Quick Approvals</span>
-          </div>
-          <div className="flex items-center justify-center space-x-2">
-            <Banknote className="text-blue-400 w-5 h-5" />
-            <span>Transparent Fees</span>
-          </div>
-          <div className="flex items-center justify-center space-x-2">
-            <Layers className="text-blue-400 w-5 h-5" />
-            <span>Flexible Amounts</span>
-          </div>
-          <div className="flex items-center justify-center space-x-2">
-            <Home className="text-blue-400 w-5 h-5" />
-            <span>Competitive Rates</span>
-          </div>
+        <div className="pb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {topProviders.map(provider => (
+            <LoanCard key={provider.id} provider={provider} />
+          ))}
         </div>
       </div>
     </div>
