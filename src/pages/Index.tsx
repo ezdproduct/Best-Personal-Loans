@@ -12,6 +12,11 @@ import { loanProviders, faqData } from '@/data/loanProviders';
 const Index = () => {
   const topCards = loanProviders.slice(0, 3);
 
+  // Determine which FAQs should be collapsible
+  const nonCollapsibleTitle = "When to Get a Personal Loan";
+  const nonCollapsibleFAQ = faqData.find(item => item.title === nonCollapsibleTitle);
+  const collapsibleFAQs = faqData.filter(item => item.title !== nonCollapsibleTitle);
+
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
       <HeroSection topProviders={topCards} />
@@ -33,9 +38,11 @@ const Index = () => {
 
         {/* FAQ Section */}
         <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-10 mt-12 space-y-8 text-gray-700 leading-relaxed">
-            {faqData.map((item, index) => (
-                <FAQSection key={index} item={item} />
+            {collapsibleFAQs.map((item, index) => (
+                <FAQSection key={index} item={item} isCollapsible={true} />
             ))}
+            {/* Non-collapsible section */}
+            {nonCollapsibleFAQ && <FAQSection item={nonCollapsibleFAQ} isCollapsible={false} />}
             <Disclosure />
         </div>
       </div>
