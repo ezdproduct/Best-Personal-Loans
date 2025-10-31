@@ -40,7 +40,7 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
         <img 
           src="/checkdraw-logo.png" 
           alt="Checkdraw Logo" 
-          className="h-20 md:h-24 w-auto"
+          className="h-24 md:h-28 w-auto"
         />
       );
     case 'Hanfincal Lending':
