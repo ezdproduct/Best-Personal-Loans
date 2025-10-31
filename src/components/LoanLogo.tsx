@@ -38,17 +38,24 @@ const LoanLogo: React.FC<LoanLogoProps> = ({ logoType, size = 'large' }) => {
     case 'Checkdraw':
       return (
         <img 
-          src="/checkdraw-logo.svg" 
+          src="/checkdraw-logo.png" 
           alt="Checkdraw Logo" 
           className="h-20 md:h-24 w-auto"
         />
       );
     case 'Hanfincal Lending':
-    case 'Halloween Hanfincal':
       return (
         <img 
           src="/hanfincal-logo.svg" 
           alt="Hanfincal Logo" 
+          className={`${imageClass} w-auto`} 
+        />
+      );
+    case 'Halloween Hanfincal':
+      return (
+        <img 
+          src="/halloween-hanfincal-logo.png" 
+          alt="Halloween Hanfincal Logo" 
           className={`${imageClass} w-auto`} 
         />
       );
